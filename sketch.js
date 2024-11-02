@@ -9,13 +9,13 @@ function setup() {
 }
 
 function draw() {
-  background(0); 
+  background(0); //背景為黑色
   //translate(width/2,height/2) //原點移到視窗中心點
   for(let y=0;y<height;y=y+120){
   for(let x=0;x<width;x=x+100){
-    push()
-    translate(x,y)
-    stroke(255)
+    push() //重新設定格式(包含圓點位置、線條，要設定原點(0,0)在(X,y)上
+    translate(x,y) //把原點(0,0)放在(x,y)上
+    stroke(255) //線條顏色
   for(let i=0;i<10;i=i+1){
   let r = map (sin(frameCount),-1,1,50,255)
   let g = map (cos(frameCount/2),-1,1,50,255)
@@ -23,9 +23,9 @@ function draw() {
   stroke(r,g,b)
   rotate(angle)  //把物件旋轉10度的角度，以原點(0,0) 為基準點
   rect(0,0,100-i*3,100-i*3,20) //畫一方形，在視窗中間，寬與高為600
-  angle = sin(frameCount)* 30
+  angle = sin(frameCount)* 30 //讓方形地旋轉角度在0~100度的範圍
   }
-  pop()
+  pop() //取消所有格式，原點(0,0)回到視窗的左上角
 }
 }
 }
